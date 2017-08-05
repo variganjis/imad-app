@@ -9,13 +9,62 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+var articleOne = {
+    tiltle :'article-one | Suresh Variganji',
+    header : 'Article One',
+    content:`<p>
+                This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.
+            </p>
+             <p>
+                This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.
+            </p>
+             <p>
+                This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.
+            </p>`
+    
+};
+
+function templateContent(data)
+{
+    var title = data.title;
+    var header = data.header;
+    var content = data.content;
+    
+    var htmlData = 
+    `<html>
+<head>
+    <title> ${tiltle}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="ui/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class=container>
+        <div>
+              <a href='/' >Home</a>
+        </div>
+        <hr/>
+      
+        <div>
+            <h1>${header}</h1>
+        </div>
+        <div>
+            ${content}
+        </div>
+    </div>
+</body>
+</html>`;
+
+return htmlData;
+    
+}
+
 
 app.get('/template-one',function(req,res){
    res.send('template one is requested and response is served here'); 
 });
 
 app.get('/article-one', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+  res.send(templateContent(articleOne)); 
 });
 
 app.get('/article-two', function (req, res) {
