@@ -9,7 +9,8 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var articleOne = {
+var articles = {
+    articleOne : {
     tiltle :'article-one | Suresh Variganji',
     header : 'Article One',
     content:`<p>
@@ -22,6 +23,26 @@ var articleOne = {
                 This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.
             </p>`
     
+    },
+    articleTwo : {
+    tiltle :'article-two | Suresh Variganji',
+    header : 'Article Two',
+    content:`<p>
+                This is my Second page content.This is my first page content.This is my second page content.This is my first page content.This is my second page content.This is my second page content.
+            </p>
+             <p>
+                This is my second page content.This is my second page content.This is my first page content.This is my second page content.This is my first page content.This is my second page content.
+            </p>`
+    
+    },
+    articleThree : {
+    tiltle :'article-three | Suresh Variganji',
+    header : 'Article Three',
+    content:`<p>
+                This is my third page content.This is my third page content.
+             </p>`
+    
+    }
 };
 
 function templateContent(data)
@@ -64,7 +85,7 @@ app.get('/template-one',function(req,res){
 });
 
 app.get('/article-one', function (req, res) {
-  res.send(templateContent(articleOne)); 
+  res.send(templateContent(articles.articleOne)); 
 });
 
 app.get('/article-two', function (req, res) {
