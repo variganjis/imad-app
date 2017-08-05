@@ -144,6 +144,9 @@ app.get('/:articleName', function (req, res) {
     res.send(templateContent(articles[articleName]));
 });
 
+app.get('/template-one', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'template-one.html'));
+});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
