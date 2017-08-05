@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
 
 var articles = {
     articleOne : {
-    tiltle :'article-one | Suresh Variganji',
+    title :'article-one | Suresh Variganji',
     header : 'Article One',
     content:`<p>
                 This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.
@@ -25,7 +25,7 @@ var articles = {
     
     },
     articleTwo : {
-    tiltle :'article-two | Suresh Variganji',
+    title :'article-two | Suresh Variganji',
     header : 'Article Two',
     content:`<p>
                 This is my Second page content.This is my first page content.This is my second page content.This is my first page content.This is my second page content.This is my second page content.
@@ -36,7 +36,7 @@ var articles = {
     
     },
     articleThree : {
-    tiltle :'article-three | Suresh Variganji',
+    title :'article-three | Suresh Variganji',
     header : 'Article Three',
     content:`<p>
                 This is my third page content.This is my third page content.
