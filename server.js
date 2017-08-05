@@ -9,6 +9,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+/*
 var articles = {
     articleOne : {
     title :'article-one | Suresh Variganji',
@@ -43,6 +44,45 @@ var articles = {
              </p>`
     
     }
+};
+*/
+
+var articles = {
+    'article-one' : {
+            title :'article-one | Suresh Variganji',
+            header : 'Article One',
+            content:`<p>
+                        This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.
+                    </p>
+                     <p>
+                        This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.
+                    </p>
+                     <p>
+                        This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.
+                    </p>`
+            
+        },
+        
+        'article-two' : {
+            title :'article-two | Suresh Variganji',
+            header : 'Article Two',
+            content:`<p>
+                        This is my Second page content.This is my first page content.This is my second page content.This is my first page content.This is my second page content.This is my second page content.
+                    </p>
+                     <p>
+                        This is my second page content.This is my second page content.This is my first page content.This is my second page content.This is my first page content.This is my second page content.
+                    </p>`
+            
+        },
+        
+        'article-three' : {
+            title :'article-three | Suresh Variganji',
+            header : 'Article Three',
+            content:`<p>
+                        This is my third page content.This is my third page content.
+                     </p>`
+            
+        }
 };
 
 function templateContent(data)
@@ -79,13 +119,13 @@ return htmlData;
     
 }
 
+/*
+app.get('/article-one', function (req, res) {
+  res.send(templateContent(articles.articleOne)); 
+});
 
 app.get('/template-one',function(req,res){
    res.send('template one is requested and response is served here'); 
-});
-
-app.get('/article-one', function (req, res) {
-  res.send(templateContent(articles.articleOne)); 
 });
 
 app.get('/article-two', function (req, res) {
@@ -95,6 +135,15 @@ app.get('/article-two', function (req, res) {
 app.get('/article-three', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
 });
+*/
+
+app.get('/:articleName', function (req, res) {
+    // articleName - name of article one
+    // articles[articleName] - content of the article one
+    var articleName=req.params.articleName;
+    res.send(templateContent(articles[articleName]));
+});
+
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
