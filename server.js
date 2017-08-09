@@ -21,12 +21,15 @@ app.get('/', function (req, res) {
 var pool = new Pool(config);
 app.get('/test-db', function (req, res) {
   pool.query('SELECT * FROM article', function(err,result){
+      res.send('testing test-db');
+      /*
       if(err){
         res.status(500).send(err.toString());     
       }
       else{
           res.send(JSON.string(result));
       }
+      */
   });
 });
 
