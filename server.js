@@ -112,8 +112,18 @@ app.get('articles/:articleName', function (req, res) {
     // articleName - name of article one
     // articles[articleName] - content of the article one
     var articleName=req.params.articleName;
-    alert(articleName);
-    res.send(templateContent(articles[articleName]));
+    pool.query("SELECT * FROM articles where title = '" +  req.params.articleName + "'", fucntion(err,result)){
+        if(err) {
+            res.status(500).send(err.toString());
+        }else {
+            if(result.rows.lenght === 0){
+                res.status(404).send("Article Not Found");
+            }else {
+                var articleData = result.row[0];
+                res.send(templateContent(articleData));
+            }
+        }
+    }
 });
 
 app.get('/template-one', function (req, res) {
