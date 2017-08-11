@@ -111,8 +111,21 @@ app.get('/test-db', function (req, res) {
 app.get('/:articleName', function (req, res) {
     // articleName - name of article one
     // articles[articleName] - content of the article one
-    var articleName=req.params.articleName;
-    res.send(templateContent(articles[articleName]));
+   
+   // var articleName=req.params.articleName;
+    //res.send(templateContent(articles[articleName]));
+    
+    // make a select request
+    // return a response with the results
+    pool.query('SELECT * FROM articles',function(err,result) {
+      if(err) {
+        res.status(500).send(err.toString());
+      }else {
+          res.send(JSON.stringify(result.rows));
+      }
+    });
+    //res.send('got test-db request and serving response here..');
+
 });
 
 
