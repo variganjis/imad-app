@@ -114,7 +114,7 @@ app.get('/:articleName', function (req, res) {
     
     //var articleData = result.rows[0];
     //res.send(templateContent(articleData));
-          
+    debugger;      
     pool.query("SELECT * FROM articles WHERE title ='article-one'",  function(err,result){
         if(err){
             res.status(500).send(err.toString());
