@@ -8,7 +8,7 @@ var config = {
     database:	'variganjisuresh',
     host: 'db.imad.hasura-app.io',
     port: '5432' ,
-    password:	'db-variganjisuresh-31838'
+    password: 'db-variganjisuresh-31838'
 };
 
 var app = express();
@@ -20,6 +20,8 @@ app.get('/', function (req, res) {
 
 var pool = new Pool(config);
 app.get('/test-db', function (req, res) {
+  console.log('testing tes-db');
+  /*
   pool.query('SELECT * FROM article', function(err,result){
       if(err){
         res.status(500).send(err.toString());     
@@ -28,6 +30,7 @@ app.get('/test-db', function (req, res) {
           res.send(JSON.string(result));
       }
   });
+  */
 });
 
     
