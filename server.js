@@ -18,59 +18,10 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var pool = new Pool(config);
 app.get('/test-db', function (req, res) {
   console.log('testing tes-db');
-  /*
-  pool.query('SELECT * FROM article', function(err,result){
-      if(err){
-        res.status(500).send(err.toString());     
-      }
-      else{
-          res.send(JSON.string(result));
-      }
-  });
-  */
+  res.send('got test-db request and serving response here..');
 });
-
-    
-/*
-var articles = {
-    articleOne : {
-    title :'article-one | Suresh Variganji',
-    header : 'Article One',
-    content:`<p>
-                This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.
-            </p>
-             <p>
-                This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.
-            </p>
-             <p>
-                This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.This is my first page content.
-            </p>`
-    
-    },
-    articleTwo : {
-    title :'article-two | Suresh Variganji',
-    header : 'Article Two',
-    content:`<p>
-                This is my Second page content.This is my first page content.This is my second page content.This is my first page content.This is my second page content.This is my second page content.
-            </p>
-             <p>
-                This is my second page content.This is my second page content.This is my first page content.This is my second page content.This is my first page content.This is my second page content.
-            </p>`
-    
-    },
-    articleThree : {
-    title :'article-three | Suresh Variganji',
-    header : 'Article Three',
-    content:`<p>
-                This is my third page content.This is my third page content.
-             </p>`
-    
-    }
-};
-*/
 
 var articles = {
     'article-one' : {
@@ -143,24 +94,6 @@ function templateContent(data)
 return htmlData;
     
 }
-
-/*
-app.get('/article-one', function (req, res) {
-  res.send(templateContent(articles.articleOne)); 
-});
-
-app.get('/template-one',function(req,res){
-   res.send('template one is requested and response is served here'); 
-});
-
-app.get('/article-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/article-three', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
-*/
 
 app.get('/:articleName', function (req, res) {
     // articleName - name of article one
