@@ -111,6 +111,10 @@ app.get('/test-db', function (req, res) {
 app.get('/:articleName', function (req, res) {
     // articleName - name of article one
     // articles[articleName] - content of the article one
+    
+    //var articleData = result.rows[0];
+    //res.send(templateContent(articleData));
+          
     pool.query("SELECT * FROM articles WHERE title ='article-one'",  function(err,result){
         if(err){
             res.status(500).send(err.toString());
