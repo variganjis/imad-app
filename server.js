@@ -127,7 +127,8 @@ app.get('/articles/:articleName', function (req, res) {
                 res.status(404).send('Articls Not found');
             }else {
                 var articleData = result.rows[0];
-                res.send(templateContent(articleData));
+                //res.send(templateContent(articleData));
+                res.send(JSON.stringify(result.row[0]));
             }
         }
     });
