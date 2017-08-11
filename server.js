@@ -108,14 +108,6 @@ app.get('/test-db', function (req, res) {
   //res.send('got test-db request and serving response here..');
 });
 
-app.get('/:articleName', function (req, res) {
-    // articleName - name of article one
-    // articles[articleName] - content of the article one
-    var articleName=req.params.articleName;
-    res.send(templateContent(articles[articleName]));
-});
-
-
 app.get('/articles/:articleName', function (req, res) {
     // articleName - name of article one
     // articles[articleName] - content of the article one
@@ -126,7 +118,7 @@ app.get('/articles/:articleName', function (req, res) {
             if(result.rows.lenght === 0){
                 res.status(404).send('Articls Not found');
             }else {
-                var articleData = result.rows[0];
+                //var articleData = result.rows[0];
                 //res.send(templateContent(articleData));
                 res.send(JSON.stringify(result.row[0]));
             }
