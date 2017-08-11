@@ -120,7 +120,7 @@ app.get('/articles/:articleName', function (req, res) {
     // articleName - name of article one
     // articles[articleName] - content of the article one
     var articleName = req.params.articleName;
-    pool.query("SELECT * FROM ARTICLES WHERE tile= '" + articleName + "'",  function(err,result){
+    pool.query("SELECT * FROM ARTICLES WHERE title= '" + articleName + "'",  function(err,result){
         if(err){
             res.status(500).send(err.toString());
         }else{
