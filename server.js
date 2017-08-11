@@ -14,15 +14,6 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
-
-app.get('/test-db', function (req, res) {
-  console.log('testing tes-db');
-  res.send('got test-db request and serving response here..');
-});
-
 var articles = {
     'article-one' : {
             title :'article-one | Suresh Variganji',
@@ -94,6 +85,16 @@ function templateContent(data)
 return htmlData;
     
 }
+
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+app.get('/test-db', function (req, res) {
+  console.log('testing tes-db');
+  res.send('got test-db request and serving response here..');
+});
 
 app.get('/:articleName', function (req, res) {
     // articleName - name of article one
