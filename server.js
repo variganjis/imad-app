@@ -108,7 +108,7 @@ app.get('/test-db', function (req, res) {
   //res.send('got test-db request and serving response here..');
 });
 
-app.get('/articles/:articleName', function (req, res) {
+app.get('/:articleName', function (req, res) {
     // articleName - name of article one
     // articles[articleName] - content of the article one
     pool.query("SELECT * FROM articles WHERE title = '" + req.params.articleName + "'",  function(err,result){
