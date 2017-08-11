@@ -108,6 +108,13 @@ app.get('/test-db', function (req, res) {
   //res.send('got test-db request and serving response here..');
 });
 
+app.get('articles/:articleName', function (req, res) {
+    // articleName - name of article one
+    // articles[articleName] - content of the article one
+    var articleName=req.params.articleName;
+    res.send(templateContent(articles[articleName]));
+});
+
 app.get('/:articleName', function (req, res) {
     // articleName - name of article one
     // articles[articleName] - content of the article one
