@@ -108,11 +108,28 @@ app.get('/test-db', function (req, res) {
   //res.send('got test-db request and serving response here..');
 });
 
-app.get('/articles/:articleName', function (req, res) {
+app.get('/:articleName', function (req, res) {
     // articleName - name of article one
     // articles[articleName] - content of the article one
     var articleName=req.params.articleName;
     res.send(templateContent(articles[articleName]));
+});
+
+
+app.get('/articles/:articleName', function (req, res) {
+    // articleName - name of article one
+    // articles[articleName] - content of the article one
+    pool.query('SELECT * FROM ARTCILES', function(err,result){
+        if(err){
+            res.status(500).send(err.toString());
+        }else{
+            if(result.row.lenght === 0){
+                res.status(404).send('No Articl found');
+            }else {
+                res.send(templateContent(result.rows[0]));
+            }
+        }
+    });
 });
 
 
