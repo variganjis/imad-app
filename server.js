@@ -91,9 +91,21 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+var pool = new Pool(config);
 app.get('/test-db', function (req, res) {
-  console.log('testing tes-db');
-  res.send('got test-db request and serving response here..');
+    // make a select request
+    // return a response with the results
+  pool.query('SELECT * FROM article',cunctions(err,result) {
+      if(err)
+      {
+        res.status(500).send(err.toString());
+      }
+      else
+      {
+          res.send(JSON.stringify(result));
+      }
+  });
+  //res.send('got test-db request and serving response here..');
 });
 
 app.get('/:articleName', function (req, res) {
