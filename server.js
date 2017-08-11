@@ -112,7 +112,7 @@ app.get('articles/:articleName', function (req, res) {
     // articleName - name of article one
     // articles[articleName] - content of the article one
     var articleName=req.params.articleName;
-    console.log(articleName);
+    alert(articleName);
     res.send(templateContent(articles[articleName]));
 });
 
