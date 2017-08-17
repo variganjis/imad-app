@@ -4,23 +4,20 @@ function onBtnCounter()
 {
     alert('onBtnCounter');
     var request = new XMLHttpRequest();
-    request.onreadystatuschange = function()
-    {
+    request.onreadystatuschange = function() {
+        alert('DONE');
         console.log('on ready staus chnage');
-        if ( readystatus === XMLHttpRequest.DONE )
-            {
-                 alert('DONE');
-                if ( request.status === 200)
-                    {
-                         alert('200');
-                        console.log('trying to set counter value');
-                        var count = request.responseText;
-                        alert(count.toString());
-                        document.getElementById('counter').innerText = count.toString();                    
-                    }
+        if ( request.readystatus === XMLHttpRequest.DONE ) {
+            if ( request.status === 200) {
+                    alert('200');
+                    console.log('trying to set counter value');
+                    var count = request.responseText;
+                    alert(count.toString());
+                    document.getElementById('counter').innerText = count.toString();                    
             }
+        }
     };
-    request.open('GET', 'http://variganjisuresh.imad.hasura-app.io/counter', true);
+    request.open('GET', 'http://variganjisuresh.imad.hasura-app.io/counter', false);
     request.send(null);   
 }
 
