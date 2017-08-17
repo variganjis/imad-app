@@ -15,7 +15,7 @@ function onBtnCounter()
                         document.getElementById('counter').innerText = count.toString();                    
                     }
             }
-    }
+    };
     request.open('GET', 'http://variganjisuresh.imad.hasura-app.io/counter', true);
     request.send(null);   
 }
