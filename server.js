@@ -108,6 +108,14 @@ app.get('/test-db', function (req, res) {
   //res.send('got test-db request and serving response here..');
 });
 
+var countval=0;
+app.get('/counter',function(req,res){
+    console.log("inside counter end point");
+    countval = countval + 1;
+    res.send(countval.toString());
+})
+
+
 app.get('/:articleName', function (req, res) {
     // articleName - name of article one
     // articles[articleName] - content of the article one
