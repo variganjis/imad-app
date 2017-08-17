@@ -17,7 +17,7 @@ function onBtnCounter()
             }
         }
     };
-    request.open('GET', 'http://variganjisuresh.imad.hasura-app.io/counter', false);
+    request.open('GET', 'http://variganjisuresh.imad.hasura-app.io/counter', true);
     request.send(null);   
 }
 
