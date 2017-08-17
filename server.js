@@ -111,8 +111,8 @@ app.get('/test-db', function (req, res) {
 app.get('/:articleName', function (req, res) {
     // articleName - name of article one
     // articles[articleName] - content of the article one
-    var articleData = result.rows[0];
-    res.send(templateContent(articleData));
+    var articleName = req.params.articleName
+    res.send(templateContent(articleName));
 });
 
 
