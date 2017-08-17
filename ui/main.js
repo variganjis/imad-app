@@ -4,10 +4,10 @@ function onBtnCounter()
 {
     alert('onBtnCounter');
     var request = new XMLHttpRequest();
-    request.onreadystatuschange = function() {
+    request.onreadystatechange = function() {
         alert('DONE');
         console.log('on ready staus chnage');
-        if ( request.readystatus === XMLHttpRequest.DONE ) {
+        if ( request.readyState === XMLHttpRequest.DONE ) {
             if ( request.status === 200) {
                     alert('200');
                     console.log('trying to set counter value');
